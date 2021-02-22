@@ -40,11 +40,19 @@ function App() {
   );
 }
 
+const useDocumentTitle = (newTitle)=>{
+  useEffect(()=>{
+    let oldDocumentTitle = document.title;
+    document.title = newTitle;
+    return ()=>{
+      document.title = oldDocumentTitle;
+    }
+  }, [])
+}
+
 const My = ()=>{
 
-  useEffect(()=>{
-    document.title = '个人信息';
-  }, [])
+  useDocumentTitle('个人信息')
 
   return (
     <div>My</div>
@@ -52,9 +60,7 @@ const My = ()=>{
 }
 const Project = ()=>{
 
-  useEffect(()=>{
-    document.title = '项目';
-  }, [])
+  useDocumentTitle('项目')
 
   return (
     <div>project</div>
