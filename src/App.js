@@ -4,6 +4,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import {useEffect} from 'react';
 
 function App() {
   return (
@@ -40,11 +41,21 @@ function App() {
 }
 
 const My = ()=>{
+
+  useEffect(()=>{
+    document.title = '个人信息';
+  }, [])
+
   return (
     <div>My</div>
   )
 }
 const Project = ()=>{
+
+  useEffect(()=>{
+    document.title = '项目';
+  }, [])
+
   return (
     <div>project</div>
   )
